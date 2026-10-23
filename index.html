@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Owning Tulum – An Investment Seminar. Toronto, Nov 19 at Gladstone House · Montréal, Nov 25 at Yoko Luna.">
 <title>Owning Tulum</title>
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400;1,6..12,700&display=swap">
 
@@ -769,7 +770,8 @@ hr.div {
     lastBtn=btn; var id=btn.getAttribute('data-video');
     title.textContent=btn.getAttribute('data-title');
     yt.href='https://www.youtube.com/watch?v='+id;
-    frame.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="'+btn.getAttribute('data-title')+' video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    var origin=(location.origin&&location.origin!=='null')?'&origin='+encodeURIComponent(location.origin):'';
+    frame.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1&enablejsapi=1'+origin+'" title="'+btn.getAttribute('data-title')+' video" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen; web-share" allowfullscreen></iframe>';
     modal.hidden=false; document.body.style.overflow='hidden'; closeBtn.focus();
   }
   function close(){
